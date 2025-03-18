@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Adel Aichi</title>
+    <style>
+        /* Général */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e2a38;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            padding: 20px;
+            border-bottom: 4px solid #3498db;
+        }
+
+        .logo {
+            width: 60px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        /* Conteneur */
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #3b4d61;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #2c3e50;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            padding: 10px;
+            margin-top: 20px;
+            border-top: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.png" alt="Mon Logo" class="logo">
+        <h1>Adel Aichi</h1>
+        <p>BTS CIEL - Développeur Web & IoT</p>
+    </header>
+
+    <section class="container">
+        <div class="card">
+            <h2>Compétences</h2>
+            <ul>
+                <li>Développement Web : HTML, CSS, JavaScript, PHP</li>
+                <li>Back-end : Python, Node.js</li>
+                <li>IoT : ESP32, Raspberry Pi</li>
+                <li>Systèmes & Réseaux : Linux, Docker, Kali Linux</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>Expérience</h2>
+            <ul>
+                <li>Projet ADEL : Développement de serrures connectées</li>
+                <li>Création d'APIs sécurisées avec Flask et FastAPI</li>
+                <li>Déploiement de conteneurs Docker pour services web</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>Formation</h2>
+            <ul>
+                <li>BTS CIEL - Lycée Jean Rostand, Villepinte</li>
+                <li>Autodidacte en développement web et IoT</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>Contact : adel.aichi@example.com</p>
+    </footer>
+
+</body>
+</html>
