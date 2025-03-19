@@ -60,6 +60,7 @@
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .menu a:hover {
@@ -124,21 +125,84 @@
             color: #e0e0e0;
         }
 
+        /* Sections À propos et Contact */
+        #apropos, #contact {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        #apropos p, #contact form {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        #contact form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #contact input, #contact textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+
+        #contact button {
+            background: #64ffda;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            color: #121212;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #contact button:hover {
+            background: #e0e0e0;
+            color: #121212;
+        }
+
         /* Footer */
         footer {
             text-align: center;
             padding: 20px;
             background: rgba(255, 255, 255, 0.05);
-            margin-top: 30px;
+            margin-top: 90px;
+        }
+
+        /* Bouton LinkedIn */
+        .linkedin-button {
+            background-color: #0A66C2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .linkedin-button:hover {
+            background-color: #004182;
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">Adel Aichi</div>
+        <a href="https://www.linkedin.com/in/votre-profil" class="linkedin-button" target="_blank">LinkedIn</a>
         <div class="menu">
-            <a href="#apropos">À propos</a>
-            <a href="#competences">Compétences</a>
+            <a id="show-apropos">À propos</a>
+            <a id="show-contact">Contact</a>
         </div>
     </nav>
 
@@ -148,23 +212,29 @@
         <p>BTS CIEL - Développeur Web & IoT</p>
     </header>
 
-    <section class="container">
-        <div class="card" id="competences">
-            <h2>Compétences</h2>
-            <ul>
-                <li>Développement Web : HTML, CSS, JavaScript, PHP</li>
-                <li>Back-end : Python, Node.js</li>
-                <li>IoT : ESP32, Raspberry Pi</li>
-                <li>Systèmes & Réseaux : Linux, Docker, Kali Linux</li>
-            </ul>
-        </div>
+    <section id="apropos">
+        <h2>À propos de moi</h2>
+        <p>Je m'appelle Adel Aichi, et je suis un élève en deuxième année de BTS CIEL. Passionné par le développement web et les réseaux, je suis constamment à la recherche de nouvelles façons d'innover et de créer des solutions efficaces. À seulement 19 ans, je suis toujours ouvert à de nouveaux défis et opportunités pour mettre en pratique mes compétences et continuer à apprendre.</p>
+        <p>N'hésitez pas à me contacter pour discuter de projets ou de collaborations potentielles.</p>
+    </section>
 
+    <section class="container">
         <div class="card">
             <h2>Expérience</h2>
             <ul>
                 <li><a href="https://github.com/votre-utilisateur/projet-adel" class="github-link" target="_blank">Projet ADEL : Développement de serrures connectées</a></li>
                 <li><a href="https://github.com/votre-utilisateur/api-securisee" class="github-link" target="_blank">Création d'APIs sécurisées avec PHPMyadmin et MySql Workbench</a></li>
                 <li><a href="https://github.com/votre-utilisateur/deploiement-docker" class="github-link" target="_blank">Déploiement de conteneurs Docker pour services web</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Compétences</h2>
+            <ul>
+                <li>Développement Web : HTML, CSS, JavaScript, PHP</li>
+                <li>Back-end : Python, Node.js</li>
+                <li>IoT : ESP32, Raspberry Pi</li>
+                <li>Systèmes & Réseaux : Linux, Docker, Kali Linux</li>
             </ul>
         </div>
 
@@ -177,8 +247,42 @@
         </div>
     </section>
 
-    <footer id="contact">
+    <section id="contact">
+        <h2>Contact</h2>
+        <form>
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" placeholder="Votre message" rows="4" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
         <p>Contact : adel.aichi@example.com</p>
     </footer>
+
+    <script>
+        document.getElementById('show-apropos').addEventListener('click', function(event) {
+            event.preventDefault();
+            const aproposSection = document.getElementById('apropos');
+            if (aproposSection.style.display === 'none' || aproposSection.style.display === '') {
+                aproposSection.style.display = 'block';
+                document.getElementById('contact').style.display = 'none';
+            } else {
+                aproposSection.style.display = 'none';
+            }
+        });
+
+        document.getElementById('show-contact').addEventListener('click', function(event) {
+            event.preventDefault();
+            const contactSection = document.getElementById('contact');
+            if (contactSection.style.display === 'none' || contactSection.style.display === '') {
+                contactSection.style.display = 'block';
+                document.getElementById('apropos').style.display = 'none';
+            } else {
+                contactSection.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
