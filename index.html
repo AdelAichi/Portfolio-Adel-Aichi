@@ -1,288 +1,699 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Adel Aichi</title>
-    <style>
-        /* Général */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Adel Aichi</title>
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 30px 20px;
-        }
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #0f2027, #121212);
+    color: #e0e0e0;
+    margin: 0;
+}
+.contact-button {
+    background: #64ffda;
+    color: #121212;
+    padding: 8px 15px;
+    margin-left: 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
 
-        h1 {
-            font-size: 2em;
-            letter-spacing: 1.5px;
-            margin-top: 10px;
-            color: #64ffda;
-        }
+.contact-button:hover {
+    background: #2ed9b9;
+}
 
-        .profile-logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 10px auto;
-            display: block;
-            border: 3px solid #64ffda;
-        }
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            font-size: 1em;
-        }
+.linkedin-button {
+    background: #0A66C2;
+    padding: 10px 18px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
-        .logo {
-            font-weight: bold;
-            color: #64ffda;
-        }
+.menu a {
+    margin-left: 15px;
+    cursor: pointer;
+}
 
-        .menu {
-            display: flex;
-            gap: 20px;
-        }
 
-        .menu a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
 
-        .menu a:hover {
-            color: #64ffda;
-        }
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
 
-        /* Contenu principal */
-        .container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding: 30px 20px;
-        }
+.profile-logo {
+    width: 140px;
+    border-radius: 50%;
+    border: 3px solid #64ffda;
+    margin-top: 10px;
+}
 
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 280px;
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+h1 {
+    color: #64ffda;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
-        }
+.typing {
+    color: #64ffda;
+    font-weight: bold;
+}
 
-        h2 {
-            color: #64ffda;
-            margin-bottom: 15px;
-        }
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+/* Description au-dessus de l'image */
+.project h3, .project p {
+    margin-bottom: 5px;
+    color: #64ffda;
+    text-align: center;
+}
 
-        li {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
+/* Image avec marge en haut pour remonter le texte */
+.project img {
+    width: 100%;
+    max-height: 200px; /* plus grand que 140px */
+    object-fit: contain;
+    margin-top: 5px; /* espace entre texte et image */
+    filter: drop-shadow(0 0 10px rgba(100,255,218,0.4));
+}
 
-        li:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
+/* Bouton projet */
+.project a.btn-project {
+    display: inline-block;
+    margin-top: 10px;
+    background: #0A66C2;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    font-size: 0.9em;
+}
 
-        /* Styles pour les liens GitHub et Formation */
-        .github-link, .formation-link {
-            color: #64ffda;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+.project a.btn-project:hover {
+    background: #064a8f;
+}
 
-        .github-link:hover, .formation-link:hover {
-            color: #e0e0e0;
-        }
 
-        /* Sections À propos et Contact */
-        #apropos, #contact {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            margin: 20px auto;
-            width: 80%;
-            max-width: 600px;
-        }
+/* CONTAINER */
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+}
 
-        #apropos p, #contact form {
-            font-size: 1em;
-            line-height: 1.6;
-        }
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 12px;
+    width: 280px;
+    box-shadow: 0 0 20px rgba(100,255,218,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-        #contact form {
-            display: flex;
-            flex-direction: column;
-        }
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(100,255,218,0.3);
+}
 
-        #contact input, #contact textarea {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-            color: #e0e0e0;
-        }
+/* REVEAL */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+}
 
-        #contact button {
-            background: #64ffda;
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            color: #121212;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.6s ease;
+}
 
-        #contact button:hover {
-            background: #e0e0e0;
-            color: #121212;
-        }
+/* SKILLS BAR */
+.skill {
+    margin: 10px 0;
+}
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            margin-top: 90px;
-        }
+.bar {
+    background: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
 
-        /* Bouton LinkedIn */
-        .linkedin-button {
-            background-color: #0A66C2;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
+.bar span {
+    display: block;
+    height: 8px;
+    background: #64ffda;
+    width: 0;
+}
 
-        .linkedin-button:hover {
-            background-color: #004182;
-        }
-    </style>
+/* ABOUT */
+#apropos {
+    text-align: center;
+    padding: 30px;
+    max-width: 600px;
+    margin: auto;
+}
+
+
+#apropos {
+    text-align: center;
+    padding: 30px;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 15px;
+    position: relative;
+    transition: box-shadow 0.6s ease;
+    box-shadow: none; /* par défaut aucun contour */
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 10px 3px #64ffda,
+            0 0 20px 6px #64ffda80,
+            0 0 30px 9px #64ffda40;
+    }
+    50% {
+        box-shadow:
+            0 0 15px 5px #64ffda,
+            0 0 30px 10px #64ffdaaa,
+            0 0 45px 15px #64ffda70;
+    }
+}
+
+#apropos.active {
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.7;
+}
+
+
+
+.formation-item {
+    background: rgba(255,255,255,0.07);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    text-align: left;
+    position: relative;
+}
+
+.formation-item h3 {
+    margin: 5px 0;
+    color: #64ffda;
+}
+
+.formation-item p {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.formation-item small {
+    opacity: 0.7;
+}
+
+.badge {
+    display: inline-block;
+    background: #64ffda;
+    color: #121212;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+
+.carousel {
+    position: relative;
+    text-align: center;
+}
+
+.project {
+    display: none;
+}
+
+.project.active {
+    display: block;
+}
+
+.project img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px rgba(100,255,218,0.4));
+}
+
+.project h3 {
+    color: #64ffda;
+    margin-bottom: 5px;
+}
+
+.project p {
+    font-size: 0.9em;
+    opacity: 0.85;
+}
+
+/* Arrows */
+.arrow {
+    position: absolute;
+    top: 40%;
+    background: none;
+    border: none;
+    color: #64ffda;
+    font-size: 1.8em;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.arrow:hover {
+    transform: scale(1.2);
+}
+
+.arrow.left {
+    left: -10px;
+}
+
+.arrow.right {
+    right: -10px;
+}
+
+.formation-item {
+    background: rgba(255,255,255,0.07);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #ddd;
+}
+
+.formation-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centre horizontalement */
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* pour mobiles */
+}
+
+.formation-header .badge {
+    background: #64ffda;
+    color: #121212;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85em;
+    white-space: nowrap;
+    flex-shrink: 0; /* empêcher le badge de rétrécir */
+}
+
+.formation-header h3 {
+    color: #64ffda;
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.formation-header h3 small {
+    font-weight: 400;
+    font-size: 0.85em;
+    margin-left: 6px;
+    color: #a0f0d4;
+}
+
+.formation-item p {
+    font-size: 1em;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+}
+
+.formation-item small {
+    font-size: 0.85em;
+    opacity: 0.7;
+}
+
+/* Bouton Contact */
+.contact-button {
+    background: #64ffda;
+    color: #121212;
+    padding: 8px 15px;
+    margin-left: 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.contact-button:hover {
+    background: #2ed9b9;
+}
+
+/* Modal styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; top: 0;
+    width: 100%; height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6); 
+}
+
+.modal-content {
+    background-color: #121212;
+    margin: 10% auto; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.close {
+    color: #64ffda;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #2ed9b9;
+}
+
+#contactForm textarea {
+    width: 100%;
+    background: #222;
+    border: 1px solid #64ffda;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
+    resize: vertical;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+#contactForm button {
+    background-color: #64ffda;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #121212;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+#contactForm button:hover {
+    background-color: #2ed9b9;
+}
+
+
+
+</style>
 </head>
+
 <body>
-    <nav>
-        <a href="https://www.linkedin.com/in/adel-aichi-91b7002a3/" class="linkedin-button" target="_blank">LinkedIn</a>
-        <div class="menu">
-            <a id="show-apropos">À propos</a>
-            <a id="show-contact">Contact</a>
+
+<nav>
+    <a href="https://www.linkedin.com" class="linkedin-button" target="_blank">LinkedIn</a>
+    <div class="menu">
+        <a onclick="toggle('apropos')">À propos</a>
+        <a href="#" id="contactBtn" class="contact-button">Contactez-moi</a>
+    </div>
+</nav>
+
+<!-- Modal contact -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Envoyer un message</h2>
+    <form id="contactForm">
+      <label for="message">Votre message :</label><br>
+      <textarea id="message" name="message" rows="5" required></textarea><br>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+</div>
+
+
+
+<header>
+    <h1>Adel Aichi</h1>
+    <img src="vrai.png" class="profile-logo">
+    <p class="typing"></p>
+</header>
+<section id="apropos" style="display:none;">
+    <p>
+        Diplômé d’un BTS CIEL, passionné par les systèmes, réseaux et la cybersécurité.
+        Actuellement à la recherche d’une alternance pour renforcer mes compétences
+        et contribuer à des projets concrets.
+    </p>
+</section>
+
+
+<section class="container">
+
+<div class="card reveal">
+    <h2>Projets</h2>
+
+    <div class="carousel">
+        <button class="arrow left" onclick="prevProject()">&#10094;</button>
+
+     <div class="project active">
+    <h3>🔐 Serrure connectée</h3> <!-- Titre en haut -->
+    <p>ESP32, API REST, application Android, contrôle d’accès sécurisé.</p> <!-- Description en dessous du titre -->
+    <img src="serrure.png" alt="Serrure connectée"> <!-- Image en dessous du texte -->
+    <a href="https://lien-vers-ton-projet1.com" target="_blank" class="btn-project">Voir le projet</a> <!-- Bouton cliquable sous l’image -->
+</div>
+    <div class="project">
+        <h3>🌐 API sécurisée</h3>
+        <p>Gestion des utilisateurs, authentification, base de données MySQL.</p>
+        <img src="api.png" alt="API sécurisée">
+        <a href="https://lien-vers-ton-projet2.com" target="_blank" class="btn-project">Voir le projet</a>
+    </div>
+
+    <div class="project">
+        <h3>🐳 Docker & Web</h3>
+        <p>Déploiement de services web conteneurisés sous Linux.</p>
+        <img src="docker.png" alt="Docker Web">
+        <a href="https://lien-vers-ton-projet3.com" target="_blank" class="btn-project">Voir le projet</a>
+    </div>
+
+    <button class="arrow right" onclick="nextProject()">&#10095;</button>
+</div>
+</div>
+
+
+<div class="card reveal">
+    <h2>Compétences</h2>
+
+
+    <div class="skill">HTML / CSS
+        <div class="bar"><span data-width="90%"></span></div>
+    </div>
+
+    <div class="skill">JavaScript
+        <div class="bar"><span data-width="75%"></span></div>
+    </div>
+
+    <div class="skill">Linux / Docker
+        <div class="bar"><span data-width="80%"></span></div>
+    </div>
+
+    <div class="skill">Réseaux (TCP/IP, VLAN, VPN)
+        <div class="bar"><span data-width="70%"></span></div>
+    </div>
+
+    <div class="skill">Cybersécurité (Firewall, IDS/IPS, Pentesting)
+        <div class="bar"><span data-width="65%"></span></div>
+    </div>
+
+    <div class="skill">Gestion des systèmes (Windows, Linux)
+        <div class="bar"><span data-width="75%"></span></div>
+    </div>
+
+    <div class="skill">Cloud Computing (AWS, Azure) - Notions
+        <div class="bar"><span data-width="40%"></span></div>
+    </div>
+
+    <div class="skill">Python (Automatisation, Scripts)
+        <div class="bar"><span data-width="55%"></span></div>
+    </div>
+
+    <div class="skill">Bases de données (MySQL, MongoDB) - Notions
+        <div class="bar"><span data-width="50%"></span></div>
+    </div>
+
+</div>
+</div>
+
+<div class="card reveal">
+    <h2>Formation</h2>
+
+    <div class="formation-item recherche">
+        <h3>Alternance 2026 <small>(en cours)</small></h3>
+        <p>Actuellement à la recherche d’une alternance pour renforcer mes compétences en systèmes, réseaux et cybersécurité.</p>
+    </div>
+
+    <div class="formation-item">
+        <div class="formation-header">
+            <span class="badge">2023 – 2025</span>
+            <h3>BTS CIEL</h3>
         </div>
-    </nav>
+        <p>Cybersécurité, Informatique et Réseaux, Électronique</p>
+        <small>Lycée Jean Rostand – Villepinte</small>
+    </div>
 
-    <header>
-        <h1>Adel Aichi</h1>
-        <img src="vrai.png" alt="Photo de profil" class="profile-logo">
-        <p>BTS CIEL - Développeur Web & IoT</p>
-    </header>
-
-    <section id="apropos">
-        <h2>À propos de moi</h2>
-        <p>Je m'appelle Adel Aichi, et je suis un élève en deuxième année de BTS CIEL. Passionné par le développement web et les réseaux, je suis constamment à la recherche de nouvelles façons d'innover et de créer des solutions efficaces. À seulement 19 ans, je suis toujours ouvert à de nouveaux défis et opportunités pour mettre en pratique mes compétences et continuer à apprendre.</p>
-        <p>N'hésitez pas à me contacter pour discuter de projets ou de collaborations potentielles.</p>
-    </section>
-
-    <section class="container">
-        <div class="card">
-            <h2>Expérience</h2>
-            <ul>
-                <li><a href="https://github.com/JR-CIEL-2-PROJETS/25-airlocunlock/tree/Serrure" class="github-link" target="_blank">Projet ADEL : Développement de serrures connectées</a></li>
-                <li><a href="https://github.com/JR-CIEL-2-PROJETS/25-airlocunlock/tree/API-1" class="github-link" target="_blank">Création d'APIs sécurisées avec PHPMyadmin et MySql Workbench</a></li>
-                <li><a href="https://github.com/JR-CIEL-2-WEB/activites-php-mysql-docker-AdelAichi" class="github-link" target="_blank">Déploiement de conteneurs Docker pour services web</a></li>
-            </ul>
+    <div class="formation-item">
+        <div class="formation-header">
+            <span class="badge">2023</span>
+            <h3>Baccalauréat STI2D</h3>
         </div>
+        <p>Sciences et Technologies de l’Industrie et du Développement Durable</p>
+        <small>Lycée Jean Rostand – Villepinte</small>
+    </div>
+</div>
 
-        <div class="card">
-            <h2>Compétences</h2>
-            <ul>
-                <li>Développement Web : HTML, CSS, JavaScript, PHP</li>
-                <li>Back-end : Python, Node.js</li>
-                <li>IoT : ESP32, Raspberry Pi</li>
-                <li>Systèmes & Réseaux : Linux, Docker, Kali Linux</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <h2>Formation</h2>
-            <ul>
-                <li><a href="https://www.lycee-rostand-villepinte.fr" class="formation-link" target="_blank">BTS CIEL - Lycée Jean Rostand, Villepinte</a></li>
-                <li><a href="https://www.lycee-rostand-villepinte.fr" class="formation-link" target="_blank">BAC STI2D - Lycée Jean Rostand, Villepinte</a></li>
-            </ul>
-        </div>
-    </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <form>
-            <input type="text" name="name" placeholder="Votre nom" required>
-            <input type="email" name="email" placeholder="Votre email" required>
-            <textarea name="message" placeholder="Votre message" rows="4" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
+</section>
 
-    <footer>
-        <p>Contact : adelaichi000@gmail.com</p>
-    </footer>
+<footer>
+    <p>Contact : adelaichi000@gmail.com</p>
+</footer>
 
-    <script>
-        document.getElementById('show-apropos').addEventListener('click', function(event) {
-            event.preventDefault();
-            const aproposSection = document.getElementById('apropos');
-            if (aproposSection.style.display === 'none' || aproposSection.style.display === '') {
-                aproposSection.style.display = 'block';
-                document.getElementById('contact').style.display = 'none';
-            } else {
-                aproposSection.style.display = 'none';
-            }
-        });
+<script>
+// Typing effect
+const text = "Systèmes • Réseaux • Cybersécurité • Développement";
+let i = 0;
+const typing = document.querySelector('.typing');
 
-        document.getElementById('show-contact').addEventListener('click', function(event) {
-            event.preventDefault();
-            const contactSection = document.getElementById('contact');
-            if (contactSection.style.display === 'none' || contactSection.style.display === '') {
-                contactSection.style.display = 'block';
-                document.getElementById('apropos').style.display = 'none';
-            } else {
-                contactSection.style.display = 'none';
-            }
-        });
-    </script>
+function type() {
+    if (i < text.length) {
+        typing.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 70);
+    }
+}
+type();
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+
+            // Animate skill bars
+            entry.target.querySelectorAll('.bar span').forEach(bar => {
+                bar.style.width = bar.dataset.width;
+                bar.style.transition = '1s';
+            });
+        }
+    });
+});
+reveals.forEach(el => observer.observe(el));
+
+// Toggle sections
+function toggle(id) {
+    const el = document.getElementById(id);
+    if (el.style.display === 'block') {
+        el.style.display = 'none';
+        el.classList.remove('active');
+    } else {
+        el.style.display = 'block';
+        el.classList.add('active');
+    }
+}
+
+
+
+let currentProject = 0;
+const projects = document.querySelectorAll('.project');
+
+function showProject(index) {
+    projects.forEach(p => p.classList.remove('active'));
+    projects[index].classList.add('active');
+}
+
+function nextProject() {
+    currentProject = (currentProject + 1) % projects.length;
+    showProject(currentProject);
+}
+
+function prevProject() {
+    currentProject = (currentProject - 1 + projects.length) % projects.length;
+    showProject(currentProject);
+}
+
+
+const contactBtn = document.getElementById('contactBtn');
+const modal = document.getElementById('contactModal');
+const closeBtn = document.querySelector('.close');
+const contactForm = document.getElementById('contactForm');
+
+contactBtn.addEventListener('click', e => {
+    e.preventDefault();
+    modal.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', e => {
+    if(e.target == modal){
+        modal.style.display = 'none';
+    }
+});
+
+contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const message = document.getElementById('message').value.trim();
+    if(message){
+        const mailtoLink = `mailto:adelaichi000@gmail.com?subject=Message%20depuis%20le%20portfolio&body=${encodeURIComponent(message)}`;
+        window.location.href = mailtoLink;
+        modal.style.display = 'none';
+        contactForm.reset();
+    }
+});
+
+</script>
+
+
+
+
 </body>
 </html>
